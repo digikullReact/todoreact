@@ -33,6 +33,20 @@ function Addtask() {
     
 
     setState([...state,task])
+    const item=localStorage.getItem("Data",JSON.stringify(state));
+    if(item)
+    {
+      const nt=JSON.parse(item)
+      nt.push(task)
+
+      localStorage.setItem("Data",JSON.stringify(nt));
+    }
+    else{
+      localStorage.setItem("Data",JSON.stringify([task]));
+
+    }
+
+   
   }
     return (
         <Box

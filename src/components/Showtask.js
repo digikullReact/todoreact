@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 
 
@@ -19,10 +19,17 @@ const columns = [
   ];
 
 function Showtask(props) {
+
+  let data=[];
+  if(localStorage.getItem("Data") )
+  {
+   data=JSON.parse(localStorage.getItem("Data"))
+  }
+ 
     return (
         <div style={{ height: 400, width: '100%' }}>
       <DataGrid
-        rows={props.taskData}
+        rows={data}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
